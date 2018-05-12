@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>ose-template</groupId>
+  <artifactId>configmap</artifactId>
+
+  <parent>
+    <groupId>ose-cluster-ops</groupId>
+    <artifactId>ose-template-parent</artifactId>
+    <version>${package-version}</version>      
+  </parent>
+  
+	<build>
+		<plugins>
+		  <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<executions>
+			  <execution>
+				<id>make-assembly</id>
+				<phase>package</phase>
+				<goals>
+				  <goal>single</goal>
+				</goals>
+				<configuration>
+				  <descriptors>
+					<descriptor>assembly.xml</descriptor>
+				  </descriptors>
+				</configuration>
+			  </execution>
+			</executions>
+		  </plugin>
+		  <plugin>
+			  <artifactId>maven-jar-plugin</artifactId>
+				<executions>
+				  <execution>
+					<id>default-jar</id>
+					<phase>none</phase>
+				  </execution>
+				</executions>
+		  </plugin>
+		</plugins>
+	</build>
+	 
+</project>
